@@ -1,1 +1,25 @@
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE employees'; 
+EXCEPTION WHEN OTHERS THEN NULL;
+END;
+/
 
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE departments'; 
+EXCEPTION WHEN OTHERS THEN NULL;
+END;
+/
+
+CREATE TABLE departments ( dept_id NUMBER PRIMARY KEY, dept_name VARCHAR2(50) NOT NULL);
+
+CREATE TABLE employees ( emp_id NUMBER PRIMARY KEY, first_name VARCHAR2(50), last_name VARCHAR2(50), salary NUMBER(10,2), hire_date DATE, dept_id NUMBER REFERENCES departments(dept_id));
+
+INSERT INTO departments VALUES (10,'HR');
+INSERT INTO departments VALUES (20,'IT');
+INSERT INTO departments VALUES (30,'Finance');
+
+INSERT INTO employees VALUES (1,'Alice','Uwase',25000, DATE '2018-03-15',10);
+INSERT INTO employees VALUES (2,'Brian','Mugisha',25000,DATE '2021-07-01',20);
+INSERT INTO employees VALUES (3,'Chloe','Ineza',25000,DATE '2019-11-10',30);
+INSERT INTO employees VALUES (4,'David','Hirwa',25000,DATE '2024-01-25',20);
+INSERT INTO employees VALUES (5,'Eva','Neza',25000,DATE '2022-01-10',30);
+
+COMMIT;
