@@ -9,7 +9,7 @@ BEGIN
     END IF;
 END;
 /
--- llegal goto
+-- legal goto
 DECLARE
     v_x NUMBER :=1;
 BEGIN
