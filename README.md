@@ -23,7 +23,6 @@ This project demonstrates core PL/SQL concepts, including:
 
 ```text
 .
-├── .gitignore
 ├── README.md
 ├── 00_setup/
 │   └── create_tables.sql             # Schema creation and sample data
